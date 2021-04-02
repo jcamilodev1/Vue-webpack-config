@@ -12,3 +12,11 @@ export default {
   },
 };
 </script>
+<style>
+h1 {
+  color: red;
+}
+.bold {
+  font-weight: bold;
+}
+</style>

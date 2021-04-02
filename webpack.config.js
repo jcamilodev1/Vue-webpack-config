@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
   output: {
     // salida
     path: __dirname + "/dist", // carpeta que contendra el archivo de salida
-    
+
     filename: "bundle.js", // nombre del archivo que va a salir
   },
   module: {
@@ -20,10 +21,13 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "vue-loader",
-        },
+        loader: "vue-loader",
+      },
+      // this will apply to both plain `.css` files
+      // AND `<style>` blocks in `.vue` files
+      {
+        test: /\.css$/,
+        use: ["vue-style-loader", "css-loader"],
       },
     ],
   },
@@ -33,4 +37,10 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    historyApiFallback: true,
+    port: 3000,
+  },
 };
