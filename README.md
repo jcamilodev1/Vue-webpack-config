@@ -242,7 +242,7 @@ npm run build
 
   - Carpetas
 
-    ![Como trabajar Webpack con Vue js]()
+    ![Como trabajar Webpack con Vue js](<https://github.com/jcamilodev1/vue-webpack-default/blob/main/img/Untitled%20(1).png?raw=true>)
 
   - webpack.config.js
 
